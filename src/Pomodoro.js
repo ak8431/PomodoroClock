@@ -46,7 +46,8 @@ export default class App extends React.Component{
  	}
 	// start timer
 	startTimer = () => {
-		var count = this.state.time;
+		var _this = this;
+		var count = _this.state.time;
 		count *= 60;
 		var counter = setInterval(timer,1000);
 
@@ -54,7 +55,7 @@ export default class App extends React.Component{
 			count -= 1;
 			if(count === 0){
 				clearInterval(counter);
-				this.setState({
+				_this.setState({
 					time:25,
 					name : this.state.name
 				});
@@ -62,13 +63,13 @@ export default class App extends React.Component{
 			if(count%60>=10){
 				let c = Math.floor(count/60) + ":" + count%60;
 				// console.log("c : " + c);
-				this.setState({
+				_this.setState({
 					time : c
 				});
 			}else{
 				let cd = Math.floor(count/60) +":0" + count%60;
 				// console.log("cd : "+cd);
-				this.setState({
+				_this.setState({
 					time : cd
 				});
 			}
